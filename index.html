@@ -671,8 +671,19 @@
     font-weight:300;
     color:rgba(33,44,42,0.8);
   }
+  .money-table .mt-row{ display:contents; }
+  .money-table .mt-label{ display:none; }
+  .money-table .mt-text{ display:block; opacity:1; visibility:visible; }
   @media(max-width:700px){
-    .money-table{ grid-template-columns:1fr; }
+    .money-table{ display:flex; flex-direction:column; gap:14px; background:transparent; border-radius:0; overflow:visible; }
+    .money-table .mt-head{ display:none; }
+    .money-table .mt-row{ display:block; background:var(--sand); border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+    .money-table .mt-cell{ padding:16px 20px; }
+    .money-table .mt-cell + .mt-cell{ border-top:1px solid var(--line); background:var(--linen); }
+    .money-table .mt-label{
+      display:block; margin-bottom:4px;
+      font-size:11px; letter-spacing:0.14em; text-transform:uppercase; font-weight:500; color:var(--copper);
+    }
   }
 
   /* ---------- Insight blocks ---------- */
@@ -865,8 +876,12 @@
   }
 
   /* ---------- Session-Video ---------- */
+  .session-video .media-frame{ max-width:520px; aspect-ratio:240/302; }
   .session-video{
     background:var(--linen);
+  }
+  @media(max-width:720px){
+    .session-video .media-frame{ margin:36px -24px 0; max-width:none; border-radius:0; border-left:none; border-right:none; box-shadow:none; }
   }
   .session-video h2{
     font-size:clamp(26px,3.6vw,38px);
@@ -1789,14 +1804,22 @@
     <div class="money-table">
       <div class="mt-head">Bei deiner Energie</div>
       <div class="mt-head">Bei deinem Geld</div>
-      <div class="mt-cell">Ausruhen musst du dir erst verdienen</div>
-      <div class="mt-cell">Mehr verlangen darfst du erst, wenn du noch mehr kannst</div>
-      <div class="mt-cell">Ein bisschen mehr Kraft, und schon ist sie wieder verplant</div>
-      <div class="mt-cell">Ein bisschen mehr Einkommen, und schon ist es wieder ausgegeben</div>
-      <div class="mt-cell">Du bist ständig auf mögliche Probleme vorbereitet</div>
-      <div class="mt-cell">Ein schwacher Monat fühlt sich an wie der Anfang vom Ende</div>
-      <div class="mt-cell">Abgeben fühlt sich an wie Kontrolle verlieren</div>
-      <div class="mt-cell">Hilfe annehmen fühlt sich an wie Freiheit verlieren</div>
+      <div class="mt-row">
+        <div class="mt-cell"><span class="mt-label">Bei deiner Energie</span><span class="mt-text">Ausruhen musst du dir erst verdienen</span></div>
+        <div class="mt-cell"><span class="mt-label">Bei deinem Geld</span><span class="mt-text">Mehr verlangen darfst du erst, wenn du noch mehr kannst</span></div>
+      </div>
+      <div class="mt-row">
+        <div class="mt-cell"><span class="mt-label">Bei deiner Energie</span><span class="mt-text">Ein bisschen mehr Kraft, und schon ist sie wieder verplant</span></div>
+        <div class="mt-cell"><span class="mt-label">Bei deinem Geld</span><span class="mt-text">Ein bisschen mehr Einkommen, und schon ist es wieder ausgegeben</span></div>
+      </div>
+      <div class="mt-row">
+        <div class="mt-cell"><span class="mt-label">Bei deiner Energie</span><span class="mt-text">Du bist ständig auf mögliche Probleme vorbereitet</span></div>
+        <div class="mt-cell"><span class="mt-label">Bei deinem Geld</span><span class="mt-text">Ein schwacher Monat fühlt sich an wie der Anfang vom Ende</span></div>
+      </div>
+      <div class="mt-row">
+        <div class="mt-cell"><span class="mt-label">Bei deiner Energie</span><span class="mt-text">Abgeben fühlt sich an wie Kontrolle verlieren</span></div>
+        <div class="mt-cell"><span class="mt-label">Bei deinem Geld</span><span class="mt-text">Hilfe annehmen fühlt sich an wie Freiheit verlieren</span></div>
+      </div>
     </div>
     <p class="lede" style="max-width:640px;margin:40px auto 0;text-align:center;">Deshalb reicht es nicht, nur am Geld zu schrauben. Wenn dein System lernt, Ruhe zu halten, lernt es auch, Geld zu halten.</p>
     <p class="lede" style="max-width:640px;margin:24px auto 0;text-align:center;">Und noch etwas habe ich in all den Jahren gelernt: Wer nur dem Geld hinterherrennt, läuft meistens im Kreis. Wenn du weißt, wo du hinwillst, und dich darauf ausrichtest statt aufs Geld, kommt das Geld hinterher. Und zwar nicht zu knapp.</p>
@@ -1930,7 +1953,7 @@
         <div class="s-icon"><svg viewBox="0 0 40 40"><rect x="6" y="9" width="28" height="24" rx="4"/><path d="M6 16h28"/><circle cx="20" cy="24.5" r="4.5"/><path d="M20 22v2.5l1.8 1.2"/></svg></div>
         <h3>Zwei Live-Calls mit mir</h3>
         <p>Ein Opening zum Ankommen und ein Closing zum Verankern, jeweils um 11 Uhr. Beide werden aufgezeichnet, falls du nicht live dabei sein kannst.</p>
-        <span class="tiny">Beide Calls gibt es als Aufzeichnung.</span>
+        <span class="tiny">Opening am 8. November, Closing am 19. Dezember.</span>
       </div>
       <div class="s-card">
         <div class="s-icon"><svg viewBox="0 0 40 40"><circle cx="14" cy="16" r="5"/><circle cx="27" cy="17" r="4"/><path d="M6 33c0-6 4-10 8-10s8 4 8 10"/><path d="M22 33c0-5 3.2-8.5 6.5-8.5S35 28 35 33"/></svg></div>
@@ -2161,7 +2184,7 @@
         <li><span class="check">✓</span> 2 Live-Calls mit mir, auch als Aufzeichnung</li>
         <li><span class="check">✓</span> Eine geschlossene Telegram-Gruppe mit regelmäßigen Impulsen</li>
         <li><span class="check">✓</span> Eine bewusst kleine Gruppe, in der du gesehen wirst</li>
-        <li><span class="check">✓</span> <span>Frühbucherbonus: deine persönliche Kurzanalyse als PDF <em class="val">(Wert 79 €)</em>, wenn du bis 28. Oktober buchst (399 €, danach 449 € ohne Kurzanalyse)</span></li>
+        <li><span class="check">✓</span> <span>Frühbucherbonus: deine persönliche Kurzanalyse als PDF <em class="val">(Wert 79 €)</em>, wenn du bis 28. Oktober buchst</span></li>
       </ul>
 
       <div class="price-block">
@@ -2205,9 +2228,8 @@
       <p class="lede" style="margin-top:36px;font-size:15px;">Noch unsicher, ob es passt? Buch dir ein kostenloses 15-minütiges Klarheitsgespräch. Wir schauen gemeinsam, ob The Frequency Reset gerade das Richtige für dich ist. Und wenn nicht, sage ich dir das auch.</p>
       <a href="https://meet.brevo.com/anja-staufenbiel-1/klarheitsgesprach" target="_blank" rel="noopener" class="btn" style="background:transparent;border:1px solid var(--copper-light);color:var(--copper-light);">Klarheitsgespräch buchen</a>
 
-      <p class="lede" style="margin-top:36px;font-size:15px;">Du möchtest mich erst einmal live erleben? Dann komm zu meinem kostenlosen Webinar „Warum andere leichter verdienen als du“.</p>
-      <!-- TODO: Webinar-Link eintragen -->
-      <a href="#" class="btn" style="background:transparent;border:1px solid var(--copper-light);color:var(--copper-light);">Zum Webinar anmelden</a>
+      <p class="lede" style="margin-top:36px;font-size:15px;">Du möchtest mich erst einmal live erleben? Dann komm zu meinem kostenlosen Webinar „Warum andere leichter verdienen als du“. Sonntag, 25. Oktober, 11 Uhr deutsche Zeit.</p>
+      <a href="webinar.html" class="btn" style="background:transparent;border:1px solid var(--copper-light);color:var(--copper-light);">Zum Webinar anmelden</a>
     </div>
   </div>
 </section>
@@ -2280,19 +2302,7 @@
   </div>
 </section>
 
-<svg class="wave-fill" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true" style="background:#F6F1E7"><path d="M0,30 C180,60 400,4 620,34 C820,62 1020,6 1200,34 L1200,62 L0,62 Z" fill="#EEE6D6"/></svg>
-
-<!-- WARTELISTE -->
-<section class="waitlist" id="buchen">
-  <div class="wrap">
-    <h2>Sichere dir deinen Platz</h2>
-    <p class="lede">Die Runde startet am 8. November. Mit dem Frühbucherpreis von 399 € und deiner Kurzanalyse, wenn du bis 28. Oktober buchst. Danach kostet es 449 € ohne Kurzanalyse.</p>
-    <a href="https://freequency-spirit.mytentary.com/p/9WdRfh/checkout" class="btn">Jetzt Platz sichern</a>
-    <p class="lede" style="margin-top:18px;font-size:14px;">Buchen kannst du bis Freitag, 6. November. Die Bezahlung läuft sicher über Tentary.</p>
-  </div>
-</section>
-
-<svg class="wave-fill" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true" style="background:#EEE6D6"><path d="M0,34 C200,2 420,62 600,32 C800,2 1000,60 1200,30 L1200,62 L0,62 Z" fill="#2B3A2E"/></svg>
+<svg class="wave-fill" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true" style="background:#F6F1E7"><path d="M0,34 C200,2 420,62 600,32 C800,2 1000,60 1200,30 L1200,62 L0,62 Z" fill="#2B3A2E"/></svg>
 
 <!-- ABSCHLUSS -->
 <section class="closing">
@@ -2358,7 +2368,7 @@
 <script>
   (function(){
     try{
-      var els=document.querySelectorAll('.guide-mock, .photo-band, .boat-arch, .quote-band, .tl-item, .s-card, .money-table, .pullquote, .insight-img, .analysis-figure, .hear-card, .wk, .closing-portrait');
+      var els=document.querySelectorAll('.guide-mock, .photo-band, .boat-arch, .quote-band, .tl-item, .s-card, .pullquote, .insight-img, .analysis-figure, .hear-card, .wk, .closing-portrait');
       if(!('IntersectionObserver' in window)) return;
       var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
       els.forEach(function(el){ if(el.getBoundingClientRect().top>window.innerHeight){ el.classList.add('reveal'); io.observe(el);} });
